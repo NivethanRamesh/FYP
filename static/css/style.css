@@ -1,0 +1,231 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#index-container, #result-container {
+
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    width: 400px;
+}
+
+#index-container h1, #result-container h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #007bff; /* Blue color */
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-form h2 {
+    font-size: 1.5em;
+    color: #007bff; /* Blue color */
+    margin-bottom: 10px;
+}
+
+.file-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#file-input-label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: 2px dashed #007bff;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+input[type="file"]:hover {
+    border-color: #0056b3; /* Darker shade of blue */
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker shade of blue */
+}
+
+#file-paths {
+    margin-top: 20px;
+}
+
+#file-paths p {
+    font-size: 1em;
+    color: #555;
+}
+
+#result-container p {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#result-container a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+#result-container a:hover {
+    background-color: #0056b3; /* Darker shade of blue */
+}
+
+#purchase-link {
+    background-color: #28a745; /* Green color */
+}
+
+#purchase-link:hover {
+    background-color: #218838; /* Darker shade of green */
+}
+
+.animation-container {
+    text-align: center;
+}
+
+#animated-text {
+    font-size: 3em;
+    font-weight: bold;
+    color: #007bff; /* Blue color */
+    animation: typing 3s steps(30, end), blink-caret .75s step-end infinite;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: .15em solid #007bff; /* Blue color */
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #007bff; } /* Blue color */
+}
+
+#scan-animation {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    margin: 0 auto;
+}
+
+.scanner {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background-color: #007bff; /* Blue color */
+    transform: translateX(-50%);
+    animation: scanner-move 2s linear infinite;
+}
+
+.scan-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #007bff; /* Blue color */
+    transform: translateY(-50%);
+    animation: scan-line-move 2s linear infinite;
+}
+
+@keyframes scanner-move {
+    0% { height: 0; }
+    50% { height: 100%; }
+    100% { height: 0; }
+}
+
+@keyframes scan-line-move {
+    0% { width: 0; }
+    50% { width: 100%; }
+    100% { width: 0; }
+}
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.5em;
+    background-color: #007bff; /* Blue color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+}
+
+.button:hover {
+    background-color: #0056b3; /* Darker shade of blue */
+}
+/* Styles for the popup notification */
+.popup-notification {
+    position: relative;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-bottom: 20px;
+}
+
+.popup-notification.show {
+    opacity: 1;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="result-container">
+        {% if damaged_count and damaged_count % 5 == 0 %}
+        <div id="popup-notification" class="popup-notification">
+            Number of damaged parts identified: {{ damaged_count }}
+        </div>
+        {% endif %}
+
+        <h1>Prediction Result</h1>
+        <p>Component: {{ component }}</p>
+        <p>Condition: {{ condition }}</p>
+        <p>Function: {{ function }}</p>
+        {% if condition == "Damaged" %}
+            <p>This item appears to be damaged. We recommend purchasing a new one.</p>
+            <a id="purchase-link" href="{{ url_for('purchase', part=component) }}">Replacement Guide</a>
+        {% elif condition == "Undamaged" %}
+            <p>This item is undamaged. No replacement needed.</p>
+        {% else %}
+            <p>Condition: {{ condition }}</p>
+        {% endif %}
+        <a href="{{ url_for('start') }}">Upload another image</a>
+    </div>
+
+    {% if damaged_count and damaged_count % 5 == 0 %}
+    <script>
+        // Function to show the popup notification
+        function showNotification() {
+            const popup = document.getElementById('popup-notification');
+            popup.classList.add('show');
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 5000); // Hide after 5 seconds
+        }
+        showNotification();
+    </script>
+    {% endif %}
+</body>
+</html>

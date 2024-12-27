@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Parts Damage Detection AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="index-container">
+        <h1>Car Parts Detection AI</h1>
+        
+        <div class="button-container">
+            <a href="{{ url_for('index') }}" class="button">Upload Image</a>
+            <a href="{{ url_for('feedback') }}" class="button">Feedback</a>
+            <a href="{{ url_for('logs') }}" class="button">Check Logs</a>
+        </div>
+    </div>
+</body>
+</html>

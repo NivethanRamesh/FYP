@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Parts Damage Detection AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="animation-container">
+        <h1 id="animated-text">Car Parts Detection AI</h1>
+    </div>
+    <script>
+        // Wait for 10 seconds (10000 milliseconds) then redirect to index page
+        setTimeout(function() {
+            window.location.href = "{{ url_for('start') }}";
+        }, 10000);  // 10000 milliseconds = 10 seconds
+    </script>
+</body>
+</html>

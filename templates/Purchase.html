@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repair Or Replacement Guide</title>
+    <style>
+        /* Additional styles for product display */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* Optional: Background color */
+            font-family: Arial, sans-serif; /* Font family for better readability */
+        }
+
+        #purchase-container {
+            width: 100%;
+            max-width: 1200px; /* Centered container with max-width */
+            padding: 20px; /* Padding for inner content */
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+            text-align: center; /* Center align content */
+        }
+
+        h1 {
+            font-size: 2.5em; /* Larger font size for main headings */
+            color: #333; /* Dark color for readability */
+            margin-bottom: 10px; /* Space below heading */
+        }
+
+        p {
+            font-size: 1.2em; /* Slightly larger font size for paragraphs */
+            color: #555; /* Lighter color for contrast */
+            margin-bottom: 20px; /* Space below paragraphs */
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .product {
+            margin: 10px;
+            text-align: center;
+            width: 560px; /* Adjusted width for each product */
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product h3 {
+            font-size: 1.5em;
+            margin: 15px 0;
+            color: #007bff;
+        }
+
+        .product p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .product iframe {
+            width: 100%; /* Ensures videos fill their container */
+            height: 315px; /* Adjust height as needed */
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px; /* Added margin for spacing */
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background-color: #007bff; /* Blue color */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-align: center;
+            width: 100%; /* Full width */
+            max-width: 300px; /* Max width */
+            cursor: pointer; /* Ensure cursor changes on hover */
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+        }
+
+        .button:hover {
+            background-color: #0056b3; /* Darker shade of blue */
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .product {
+                width: 100%; /* Adjust for smaller screens */
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="purchase-container">
+        <h1>Replacement Or Repair Guide</h1>
+
+
+        <div class="product-container">
+            {% if part == 'spark-plug' %}
+            <div class="product">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/0_xGFfketcs?si=7VAmH9pTrI7Lc0Tv" frameborder="0" allowfullscreen></iframe>
+                <h3>Spark Plug</h3>
+                <p>Replace your damaged spark plug with a new one.</p>
+            </div>
+            {% elif part == 'BRAKE PAD' %}
+            <div class="product">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/UlbFFq60Tec?si=CPC-JkODrwz2ekQw" frameborder="0" allowfullscreen></iframe>
+                <h3>Brake Pad</h3>
+                <p>Replace your damaged brake pad with a new one.</p>
+            </div>
+            {% elif part == 'windshield wiper' %}
+            <div class="product">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/oeezwXQC-mc?si=ZKAocTU93Uzrafgt" frameborder="0" allowfullscreen></iframe>
+                <h3>Windshield Wiper Blade</h3>
+                <p>Replace your damaged windshield wiper blade with a new one.</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="button-container">
+            <a class="button" href="{{ url_for('start') }}">Upload another image</a>
+        </div>
+    </div>
+</body>
+</html>

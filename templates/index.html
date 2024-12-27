@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Car Parts Images</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="index-container">
+        <h1>Upload Car Parts Images</h1>
+        <form class="upload-form" action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+            <h2>Choose File</h2>
+            
+            <div class="file-input-container">
+                <label id="file-input-label" for="file">Select File:</label>
+                <input type="file" id="file" name="file" onchange="updateFilePath()">
+            </div>
+            
+            <input type="submit" value="Upload">
+        </form>
+
+        <div id="file-paths">
+            <!-- JavaScript will update this part with file paths -->
+        </div>
+    </div>
+    
+    <script>
+        function updateFilePath() {
+            const fileInput = document.getElementById('file');
+            const filePaths = document.getElementById('file-paths');
+
+            filePaths.innerHTML = ''; // Clear previous paths
+
+            Array.from(fileInput.files).forEach(file => {
+                const fullFilePath = file.webkitRelativePath || file.name; // Use relative path if available
+                const pathElement = document.createElement('p');
+                pathElement.textContent = `${fullFilePath} uploaded`;
+                filePaths.appendChild(pathElement);
+            });
+        }
+
+        // Add an event listener to file input
+        document.getElementById('file').addEventListener('change', updateFilePath);
+    </script>
+</body>
+</html>
